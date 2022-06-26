@@ -2,7 +2,7 @@ package org.stanstoynov.testing;
 
 import org.testng.annotations.Test;
 
-public class AppTest {
+public class ApplicationTest {
 
 	@Test
 	public void test() {

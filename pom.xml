@@ -43,6 +43,12 @@
 			<version>${test.util.version}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>net.time4j</groupId>
+			<artifactId>time4j-range</artifactId>
+			<version>4.38</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -1,12 +1,14 @@
 package org.stanstoynov;
 
 import org.stanstoynov.model.Employee;
+import org.stanstoynov.model.EmployeePair;
 import org.stanstoynov.parser.csv.EmployeeCsvParser;
+import org.stanstoynov.service.EmployeePairService;
 
 import java.io.IOException;
 import java.util.List;
 
-public class App {
+public class Application {
 
     public static void main(String[] args) {
         EmployeeCsvParser employeeCsvParser = new EmployeeCsvParser();
@@ -18,6 +20,10 @@ public class App {
             throw new RuntimeException("Failed to load CSV file");
         }
 
-        System.out.println(employees);
+        EmployeePairService employeePairService = new EmployeePairService();
+        EmployeePair employeePair = employeePairService.findLongestRunningTeammates(employees);
+
+        System.out.printf("%s, %s%n", employeePair.getFirstEmployee().getEmployeeId(),
+                employeePair.getSecondEmployee().getEmployeeId());
     }
 }
