@@ -2,26 +2,22 @@ package org.stanstoynov;
 
 import org.stanstoynov.model.Employee;
 import org.stanstoynov.parser.csv.EmployeeCsvParser;
-import org.stanstoynov.parser.csv.FileLoader;
 
-import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class App {
 
     public static void main(String[] args) {
+        EmployeeCsvParser employeeCsvParser = new EmployeeCsvParser();
         List<Employee> employees;
 
-        FileLoader fileLoader = new FileLoader();
-        File csvFile = fileLoader.loadFileFromResources("employees.csv");
-
         try {
-            employees = EmployeeCsvParser.parseEmployees(csvFile);
-        } catch (Exception /*IOException*/ e) {
-            throw new RuntimeException("Failed to load csv file");
+            employees = employeeCsvParser.parseEmployees("employees.csv");
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load CSV file");
         }
 
         System.out.println(employees);
     }
-
 }

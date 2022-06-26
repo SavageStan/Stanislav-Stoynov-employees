@@ -1,4 +1,4 @@
-package org.stanstoynov.parser.csv;
+package org.stanstoynov.deserializer;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
